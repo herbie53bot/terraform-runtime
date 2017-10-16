@@ -10,6 +10,7 @@ RUN wget -O /usr/local/bin/terragrunt https://github.com/gruntwork-io/terragrunt
 ADD iac-requirements.txt /cm/requirements.txt
 ADD run_terraform_apply.sh /run_terraform_apply.sh
 ADD run_terraform_destroy.sh /run_terraform_destroy.sh
+ADD run_unregister_nodes.sh /run_unregister_nodes.sh
 ADD create_cluster.sh /create_cluster.sh
 
 WORKDIR /cm

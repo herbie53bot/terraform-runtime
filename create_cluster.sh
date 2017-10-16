@@ -14,7 +14,7 @@ mkdir -p /home/herbie_bot/.ssh
 ssh-keyscan -trsa $BASTION_IP > /home/herbie_bot/.ssh/known_hosts
 
 #get private key from credstash
-credstash -t dev-bot-1-secrets get deploy.ssh_key.private|base64 -d > /home/herbie_bot/.ssh/deploy_key
+credstash -t ${DEPLOY_ENV}-secrets get deploy.ssh_key.private|base64 -d > /home/herbie_bot/.ssh/deploy_key
 chmod 600 /home/herbie_bot/.ssh/deploy_key
 
 # wait for cloud-init to finish on the bastion without errors
