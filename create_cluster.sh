@@ -30,7 +30,7 @@ do
 done
 
 #check if no errors in result
-OUTPUT=`ssh -i $SSH_KEY centos@$BASTION_IP 'sudo grep "\"errors\": \[\]," /var/lib/cloud/data/result.json'`
+OUTPUT=`ssh -i $SSH_KEY centos@$BASTION_IP 'sudo grep "\"errors\": \[\]" /var/lib/cloud/data/result.json'`
 EXIT_STATUS=$?
 if [ "$EXIT_STATUS" == "0" ];
 then
