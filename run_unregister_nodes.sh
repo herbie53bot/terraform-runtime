@@ -2,6 +2,8 @@
 sudo find /iac -type d -exec chmod 777 {} \;
 sudo chmod +x /iac/bin/run_terraform
 
+/iac/bin/run_terraform plan
+
 SSH_KEY="/home/herbie_bot/.ssh/deploy_key"
 #get bastion ip
 BASTION_IP=`terraform output -state=terraform/.terraform/terraform.tfstate bastion_ip`
