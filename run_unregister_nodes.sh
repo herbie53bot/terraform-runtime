@@ -2,7 +2,7 @@
 sudo find /iac -type d -exec chmod 777 {} \;
 sudo chmod +x /iac/bin/run_terraform
 
-terraform refresh
+/iac/bin/run_terraform refresh
 
 SSH_KEY="/home/herbie_bot/.ssh/deploy_key"
 #get bastion ip
@@ -12,6 +12,9 @@ echo "Bastion IP:" $BASTION_IP
 #add bastion to known hosts
 mkdir -p /home/herbie_bot/.ssh
 ssh-keyscan -trsa $BASTION_IP > /home/herbie_bot/.ssh/known_hosts
+
+#unset AWS_PROFILE because credstash can't handle it
+unset AWS_PROFILE
 
 #get private key from credstash
 credstash -t ${DEPLOY_ENV}-secrets get deploy.ssh_key.private|base64 -d > /home/herbie_bot/.ssh/deploy_key
