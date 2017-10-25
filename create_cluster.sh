@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "[$AWS_PROFILE]" > /home/herbie_bot/.aws/credentials
 #first make sure all directories are accessible
 sudo find /iac -type d -exec chmod 777 {} \;
 # make sure we can execute run_terraform
