@@ -6,7 +6,7 @@ sudo chmod +x /iac/bin/run_terraform
 
 SSH_KEY="/home/herbie_bot/.ssh/deploy_key"
 #get bastion ip
-BASTION_IP=`terraform output -state=terraform/.terraform/terraform.tfstate bastion_ip`
+BASTION_IP=`/iac/bin/run_terraform output bastion_ip`
 echo "Bastion IP:" $BASTION_IP
 
 #add bastion to known hosts
